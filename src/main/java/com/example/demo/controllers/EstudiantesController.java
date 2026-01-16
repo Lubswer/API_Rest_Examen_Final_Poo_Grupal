@@ -1,9 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.domain.Estudiante;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.example.demo.domain.Estudiante;
 import java.util.ArrayList;
 import com.example.demo.repository.*;
@@ -24,6 +22,11 @@ public class EstudiantesController {
             }
         }
         return null;
+    }
+    @PostMapping("/estudiantes")
+    public Estudiante postEstudiante(@RequestBody Estudiante es){
+        EstudianteRep.estudiantes.add(es);
+        return es;
     }
 
 
