@@ -29,6 +29,20 @@ public class EstudiantesController {
         return es;
     }
 
+    @PutMapping("/estudiantes")
+    public Estudiante putEstudiante(@RequestBody Estudiante estudiante){
+        ArrayList<Estudiante> estudiantes = EstudianteRep.datosEstudiantes();
+        for(Estudiante  est : estudiantes){
+            if(est.getID() == estudiante.getID()){
+                est.setName(estudiante.getName());
+                est.setUsername(estudiante.getUsername());
+                est.setPassword(estudiante.getPassword());
+                return est;
+            }
+        }
+        return null;
+    }
+
 
 
 
